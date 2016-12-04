@@ -9,12 +9,6 @@ nav.navbar.navbar-default.navbar-static-top
         span.icon-bar
       a.navbar-brand(href='/') #{siteName}
     #navbar-collapse.collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li(class='#{nav.Home}')
-          a(href='/') Home
-        if user
-          li(class='#{nav.Profile}')
-            a(href='/profile') My Profile
       if user
         form(action='/logout', method='POST', id="logout_form")
           ul.nav.navbar-nav.navbar-right

@@ -16,7 +16,7 @@ var app = express();
 app.set('trust proxy',true);
 app.set('view engine', 'jade');
 app.set('views', './lib/views');
-app.locals.siteName = 'Express-Stormpath Example Project';
+app.locals.siteName = 'CatDog API Dashboard';
 
 /**
  * Stormpath initialization.
@@ -26,7 +26,18 @@ console.log('Initializing Stormpath');
 
 app.use(stormpath.init(app, {
   expand: {
-    customData: true
+    customData: true,
+    apiKeys: true
+  },
+  web: {
+    login: {
+      nextUri: "/dashboard"
+    }
+  },
+  // Generate an API key for the user when they log in
+  postRegistrationHandler: function (account, req, res, next) {
+    console.log('User:', account.email, 'just registered!');
+    next();
   }
 }));
 
