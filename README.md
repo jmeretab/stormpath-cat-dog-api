@@ -24,7 +24,20 @@ An example API and dashboard application using Stormpath.
   export STORMPATH_APPLICATION_HREF=xxx
   ```
 
-4. Start the server:
+4. Create a group in Stormpath called `Cat People`
+This group is needed to determine who can access certain endpoints of the Cat API
+
+  ```bash
+  curl --request POST \
+  --user $SP_API_KEY_ID:$SP_API_KEY_SECRET \
+  --header 'content-type: application/json' \
+  --url "https://api.stormpath.com/v1/directories/$DIRECTORY_ID/groups" \
+  --data '{
+    "name" : "Cat People"
+  }'
+  ```
+
+5. Start the server:
 
   ```bash
   node server.js
@@ -37,8 +50,8 @@ An example API and dashboard application using Stormpath.
 To access the Cat API dashboard visit Visit [http://localhost:3000/](http://localhost:3000/) and log in.
 
 From the API dashboard you can do the following:
-* **View your API Key** - This the API key used to access the Cat API
-* **Edit your `Cat Person` preferences** - This setting determines adds or removes the user from the "Cat People" group in Stormpath and determines whether or not the user can `GET` a cat via the API cat endpoint.
+* **View your API key** - This the API key used to access the Cat API
+* **Edit your Cat Person preferences** - This setting determines adds or removes the user from the `Cat People` group in Stormpath and determines whether or not the user can `GET` a cat via the API cat endpoint.
 
 
 
