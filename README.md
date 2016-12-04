@@ -58,17 +58,34 @@ From the API dashboard you can do the following:
 The catdog API has the below endpoints:
 
 #### Get dog
-```
-  /api/dog
+```bash
+GET  /api/dog
 ```
 This endpoint retrieves a dog, which goes "Woof!"
 
-#### Get cat
+Example request:
+```bash
+curl -v --user $DASHBOARD_API_KEY_ID:$DASHBOARD_API_KEY_SECRET http://localhost:3000/api/dog
 ```
-  /api/cat
+Where: 
+* `$DASHBOARD_API_KEY_ID` is the API key id provided in the Cat API dashboard.
+* `$DASHBOARD_API_KEY_SECRET` is the API key secret provided in the Cat API dashboard.
+
+
+#### Get cat
+```bash
+GET  /api/cat
 ```
 This endpoint retrieves a cat, which goes "Meow!". 
 **Users must be in the `Cat People` group to access this endpoint.**
+
+Example request:
+```bash
+curl -v --user $DASHBOARD_API_KEY_ID:$DASHBOARD_API_KEY_SECRET http://localhost:3000/api/cat
+```
+Where: 
+* `$DASHBOARD_API_KEY_ID` is the API key id provided in the Cat API dashboard.
+* `$DASHBOARD_API_KEY_SECRET` is the API key secret provided in the Cat API dashboard.
 
 
 
