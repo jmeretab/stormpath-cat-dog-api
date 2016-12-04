@@ -1,4 +1,6 @@
-block vars
+router.get('/', stormpath.getUser, function(req, res) {
+  res.render('home');
+});block vars
   - var title
 
 doctype html
