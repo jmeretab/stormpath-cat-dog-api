@@ -14,20 +14,12 @@ block content
         label.control-label.col-sm-1 Secret:
         div.col-sm-6
           input.form-control(readonly, type='text', name='secret', value=user.apiKeys.items[0].secret)
-  h5 I am a: 
   div.panel.panel-default
     div.panel-body
-      form.form-horizontal(method='post')
-        div.col-sm-12
-          div.form-group
-            label
-              input(type="checkbox", name="catPerson")
-              | Cat person
-
-          div.form-group
-            label
-              input(type="checkbox", name="dogPerson")
-              | Dog person
-          div.form-group
-            div.col-sm-offset-4.col-sm-4
-              button.btn.btn-default(type='submit') Save
+      form.form-horizontal(action='/dashboard', method='post')
+        div.col-sm-2
+          label
+            input(type="checkbox", name="catPerson", checked=(catPerson ? "checked" : undefined))
+            | I am a cat person.
+        div.col-sm-offset-8.col-sm-2
+          button.btn.btn-default(type='submit') Save

@@ -3,7 +3,8 @@
 var express = require('express');
 var stormpath = require('express-stormpath');
 
-var routes = require('./lib/routes');
+var dashboardRoutes = require('./lib/dashboard-routes');
+var apiRoutes = require('./lib/api-routes');
 
 /**
  * Create the Express application.
@@ -27,24 +28,38 @@ console.log('Initializing Stormpath');
 app.use(stormpath.init(app, {
   expand: {
     customData: true,
-    apiKeys: true
+    apiKeys: true,
+    groups: true
   },
   web: {
     login: {
       nextUri: "/dashboard"
+    },
+    register: {
+      nextUri: "/dashboard"
     }
   },
-  // Generate an API key for the user when they log in
+  // Automatically generate an API key for the user when they log in
   postRegistrationHandler: function (account, req, res, next) {
-    console.log('User:', account.email, 'just registered!');
-    next();
+    req.user.createApiKey(function (err, apiKey) {
+	    if (err) {
+	      res.status(400).end('Oops!  There was an error: ' + err.userMessage);
+	    }else{
+	     	next();
+	    }
+  	});
   }
 }));
 
 /**
  * Route initialization.
  */
-app.use('/', routes);
+
+// API routes
+app.use('/api', apiRoutes);
+
+// Developer dashboard routes
+app.use('/', dashboardRoutes);
 
 app.on('stormpath.ready',function () {
   console.log('Stormpath Ready');
