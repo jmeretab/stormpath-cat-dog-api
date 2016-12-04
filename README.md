@@ -24,7 +24,7 @@ An example API and dashboard application using Stormpath.
   export STORMPATH_APPLICATION_HREF=xxx
   ```
 
-4. Create a group in Stormpath called `Cat People`
+4. Create a group in Stormpath called `Cat People`.
 This group is needed to determine who can access certain endpoints of the Cat API
 
   ```bash
@@ -51,7 +51,25 @@ To access the Cat API dashboard visit Visit [http://localhost:3000/](http://loca
 
 From the API dashboard you can do the following:
 * **View your API key** - This the API key used to access the Cat API
-* **Edit your Cat Person preferences** - This setting determines adds or removes the user from the `Cat People` group in Stormpath and determines whether or not the user can `GET` a cat via the API cat endpoint.
+* **Edit your Cat Person preferences** - This setting determines whether the user belongs to the`Cat People` group in Stormpath. Users must have `Cat People` enabled to retrieve a cat via the API `/cat` endpoint.
+
+### API
+
+The catdog API has the below endpoints:
+
+#### Get dog
+```
+  /api/dog
+```
+This endpoint retrieves a dog, which goes "Woof!"
+
+#### Get cat
+```
+  /api/cat
+```
+This endpoint retrieves a cat, which goes "Meow!". 
+**Users must be in the `Cat People` group to access this endpoint.**
+
 
 
 
