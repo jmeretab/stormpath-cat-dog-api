@@ -1,4 +1,4 @@
-# Cat API Dashboard
+# Cat-Dog API
 An example API and dashboard application using Stormpath.
 
 ### Setup
@@ -25,7 +25,7 @@ An example API and dashboard application using Stormpath.
   ```
 
 4. Create a group in Stormpath called `Cat People`.
-This group is needed to determine who can access certain endpoints of the Cat API
+This group is needed to determine who can access certain endpoints of the Cat-Dog API
 
   ```bash
   curl --request POST \
@@ -47,11 +47,11 @@ This group is needed to determine who can access certain endpoints of the Cat AP
 
 ## Dashboard
 
-To access the Cat API dashboard visit [http://localhost:3000/](http://localhost:3000/) and log in.
+To access the Cat-Dog API dashboard visit [http://localhost:3000/](http://localhost:3000/) and log in.
 
 From the API dashboard you can do the following:
-* **View your API key** - This the API key used to access the Cat API
-* **Edit your Cat Person preferences** - This setting determines whether the user belongs to the`Cat People` group in Stormpath. Users must have `Cat People` enabled to retrieve a cat via the API `/cat` endpoint.
+* **View your API key** - This the API key used to access the Cat-Dog API
+* **Edit your Cat Person preferences** - This setting determines whether the user belongs to the `Cat People` group in Stormpath. Users must have `Cat People` enabled to retrieve a cat via the API `/cat` endpoint.
 
 ## API
 
@@ -78,7 +78,7 @@ Where:
 GET  /api/cat
 ```
 This endpoint retrieves a cat, which goes "Meow!". 
-**Users must be in the `Cat People` group to access this endpoint.**
+**Users must be in the `Cat People` Stormpath group to access this endpoint.**
 
 Example request:
 ```bash
