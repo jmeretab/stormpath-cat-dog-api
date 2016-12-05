@@ -45,7 +45,7 @@ This group is needed to determine who can access certain endpoints of the Cat AP
 
 5. Visit [http://localhost:3000/](http://localhost:3000/) in your browser
 
-### Dashboard
+## Dashboard
 
 To access the Cat API dashboard visit Visit [http://localhost:3000/](http://localhost:3000/) and log in.
 
@@ -53,7 +53,7 @@ From the API dashboard you can do the following:
 * **View your API key** - This the API key used to access the Cat API
 * **Edit your Cat Person preferences** - This setting determines whether the user belongs to the`Cat People` group in Stormpath. Users must have `Cat People` enabled to retrieve a cat via the API `/cat` endpoint.
 
-### API
+## API
 
 The catdog API has the below endpoints:
 
@@ -65,7 +65,8 @@ This endpoint retrieves a dog, which goes "Woof!"
 
 Example request:
 ```bash
-curl -v --user $DASHBOARD_API_KEY_ID:$DASHBOARD_API_KEY_SECRET http://localhost:3000/api/dog
+curl -v --user $DASHBOARD_API_KEY_ID:$DASHBOARD_API_KEY_SECRET \
+-H "Accept:application/json" http://localhost:3000/api/dog
 ```
 Where: 
 * `$DASHBOARD_API_KEY_ID` is the API key id provided in the Cat API dashboard.
@@ -81,7 +82,8 @@ This endpoint retrieves a cat, which goes "Meow!".
 
 Example request:
 ```bash
-curl -v --user $DASHBOARD_API_KEY_ID:$DASHBOARD_API_KEY_SECRET http://localhost:3000/api/cat
+curl -v --user $DASHBOARD_API_KEY_ID:$DASHBOARD_API_KEY_SECRET \
+-H "Accept:application/json" http://localhost:3000/api/dog
 ```
 Where: 
 * `$DASHBOARD_API_KEY_ID` is the API key id provided in the Cat API dashboard.

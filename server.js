@@ -17,7 +17,7 @@ var app = express();
 app.set('trust proxy',true);
 app.set('view engine', 'jade');
 app.set('views', './lib/views');
-app.locals.siteName = 'CatDog API Dashboard';
+app.locals.siteName = 'Cat-Dog API Dashboard';
 
 /**
  * Stormpath initialization.
